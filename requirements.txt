@@ -1,0 +1,6 @@
+pystray>=0.19.5
+pillow>=10.2.0
+sv_ttk>=2.6.0
+easygui>=0.98.3
+PyGithub>=2.3.0
+PyInstaller>=6.9.0
