@@ -31,14 +31,15 @@ def get_idle_time_unix_like_os() -> float:
 def get_idle_time_unix_os():
     import subprocess
 
-    idle_time = subprocess.check_output("xprintidle").decode("utf-8")
-    return int(idle_time) / 1000.0
+    idle_time = subprocess.check_output("xprintidle", shell=True).decode("utf-8")
+    return float(idle_time) / 1000.0
 
 
 def get_idle_time_mac_os():
     import subprocess
 
-    idle_time = subprocess.check_output("ioreg -c IOHIDSystem | awk '/HIDIdleTime/ {print $NF/1000000000; exit}'").decode("utf-8")
+    idle_time = subprocess.check_output("ioreg -c IOHIDSystem | awk '/HIDIdleTime/ {print $NF/1000000000; exit}'",
+                                        shell=True).decode("utf-8")
     return float(idle_time)
 
 
@@ -73,6 +74,8 @@ class Waker:
         self.wake_up_interval = 5 * 60  # unit: seconds
         self.check_interval = 5
         self.lock = threading.Lock()
+        self.os = platform.system()
+        self.icon_suffix = "win" if self.os == "Windows" else "mac"
 
     def run(self):
         while self.is_running:
@@ -86,7 +89,7 @@ class Waker:
 
     def on_start(self, icon: pystray.Icon, item: pystray.MenuItem):
         self.on_stop(icon, item, show_message=False)
-        icon.icon = Image.open("ui/active.png")
+        icon.icon = Image.open(f"ui/active_{self.icon_suffix}.png")
         icon.title = f"{__app_name__} - Active"
         icon.notify(message="Waker is now running 🌞.", title=__app_name__)
         self.is_running = True
@@ -94,8 +97,9 @@ class Waker:
         self._thread.start()
 
     def on_stop(self, icon: pystray.Icon, item: pystray.MenuItem, show_message=True):
+        print("Stopping Waker.")
         if show_message:
-            icon.icon = Image.open("ui/inactive.png")
+            icon.icon = Image.open(f"ui/inactive_{self.icon_suffix}.png")
             icon.title = f"{__app_name__} - Inactive"
             icon.notify(message="Waker is now sleeping 🌛.", title=__app_name__)
         self.is_running = False
@@ -112,6 +116,7 @@ class Waker:
         icon.update_menu()
 
     def on_set_interval(self, icon: pystray.Icon, item: pystray.MenuItem):
+        print("Setting wake-up interval.")
         interval = pymsgbox.prompt(
             text="Enter wake-up interval (in minutes):",
             title=__app_name__,
@@ -119,6 +124,7 @@ class Waker:
             root=None,
             timeout=None
         )
+        print("Interval:", interval)
         if interval is None:
             return
         try:
@@ -134,7 +140,7 @@ class Waker:
 
 def main():
     waker = Waker()
-    image = Image.open("ui/active.png")
+    image = Image.open("ui/active_win.png")
     menu = pystray.Menu(
         pystray.MenuItem(lambda text: waker.menu_running_text, waker.on_toggle_running),
         pystray.MenuItem("Wake-up Interval", waker.on_set_interval),
