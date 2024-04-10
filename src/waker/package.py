@@ -1,0 +1,12 @@
+__version__ = "0.0.1"
+__package_name__ = "waker"
+__app_name__ = "Waker"
+__description__ = 'A simple library to make MS Teams or other similar apps "Awake"'
+__author__ = "Chenglong Ma"
+__author_email__ = "chenglong.m@outlook.com"
+__author_website__ = "https://chenglongma.com/"
+__url__ = "https://chenglongma.com/waker/"
+__code__ = "https://github.com/ChenglongMa/waker/"
+__issues__ = "https://github.com/ChenglongMa/waker/issues"
+__license__ = "GPLv3"
+__copyright__ = "2024"

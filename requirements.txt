@@ -1,0 +1,6 @@
+packaging>=23.1
+pyautogui>=0.9.54
+pystray>=0.19.5
+pillow>=10.2.0
+pymsgbox>=1.0.9
+psutil>=5.9.8
