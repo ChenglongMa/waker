@@ -16,7 +16,13 @@
 > 
 > "_嗨，不要着急，休息，休息一会儿！_" - Waker <img src="./docs/icon.svg" alt="Waker图标" width="50px">
 
-Waker是一个简单直接的macOS菜单栏应用，旨在保持你的Mac唤醒状态，防止某些应用（说的就是你，Teams）变成离开状态。
+Waker是一个简单直接的小工具，旨在保持你的PC唤醒状态，防止某些应用（说的就是你，Teams）变成离开状态。
+同时，它还会模拟你的工作方式，防止其他应用（你的管理员）监控其状态，确保你的隐私和休闲。
+
+> [!TIP]
+> 
+> macOS 版本请访问我另一个项目 [Waker for macOS](https://github.com/ChenglongMa/waker-mac)。
+> 
 
 # 外观
 

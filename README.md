@@ -19,6 +19,11 @@ becoming inactive.
 
 With Waker, you can also prevent other apps (your admin) from monitoring its status, ensuring your privacy and leisure.
 
+> [!TIP]
+> 
+> macOS users can visit my other project, [Waker for macOS](https://github.com/ChenglongMa/waker-mac).
+> 
+
 # Appearance
 
 ## Menu Bar Status
