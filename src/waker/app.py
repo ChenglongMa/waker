@@ -58,7 +58,7 @@ class App(WakerObserver):
         self.position_top = int(self.screen_height / 2 - self.window_height / 2)
         self.position_right = int(self.screen_width / 2 - self.window_width / 2)
         self.root.geometry(f"{self.window_width}x{self.window_height}+{self.position_right}+{self.position_top}")
-        self.root.iconbitmap(sys.executable)
+        self.root.iconbitmap(get_asset("icon.ico"))
         self.root.minsize(self.window_width, self.window_height)
         self.root.maxsize(self.window_width + 50, self.window_height + 50)
 
@@ -415,7 +415,7 @@ class App(WakerObserver):
         pady = self.layout_padding // 2
         self.about_window = tk.Toplevel(self.root)
         self.about_window.title(self.get_label("about"))
-        self.about_window.iconbitmap(sys.executable)
+        self.about_window.iconbitmap(get_asset("icon.ico"))
         self.about_window.geometry(f"+{self.position_right}+{self.position_top}")
         self.about_window.protocol("WM_DELETE_WINDOW", self.on_about_window_closing)
         self.app_name_label = tk.Label(self.about_window, text=f"{__app_name__} v{__version__}")

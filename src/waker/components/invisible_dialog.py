@@ -12,7 +12,7 @@ class InvisibleDialog(tk.Toplevel):
         self.overrideredirect(True)
 
         self.title('Notepad')
-        self.iconbitmap(sys.executable)
+        self.iconbitmap(get_asset("icon.ico"))
         # Set window transparency
         self.attributes('-alpha', 0)
 
