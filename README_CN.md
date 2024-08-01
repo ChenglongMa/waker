@@ -55,6 +55,9 @@ Waker是一个简单直接的macOS菜单栏应用，旨在保持你的Mac唤醒�
 > 
 > 如果遇到Windows Defender SmartScreen警告，请单击“**更多信息**”，然后单击“**仍要运行**”以继续安装。
 >
+> 
+> <img alt="Windows Defender" src="./docs/warning1.png" width="50%"/>
+> <img alt="Windows Run" src="./docs/warning2.png" width="50%"/>
 
 # 工作原理
 

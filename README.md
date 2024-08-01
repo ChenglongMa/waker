@@ -59,6 +59,8 @@ the [release page](https://github.com/ChenglongMa/waker/releases/latest).
 > 
 > If you encounter a Windows Defender SmartScreen warning, click "**More info**" and then "**Run anyway**" to proceed with the installation.
 > 
+> <img alt="Windows Defender" src="./docs/warning1.png" width="50%"/>
+> <img alt="Windows Run" src="./docs/warning2.png" width="50%"/>
 
 # Workflow Logic
 
