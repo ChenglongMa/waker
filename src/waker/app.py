@@ -1,4 +1,3 @@
-import threading
 import tkinter as tk
 from tkinter import messagebox, ttk
 from tkinter import simpledialog, filedialog
@@ -7,7 +6,6 @@ import pystray
 import sv_ttk
 from PIL import UnidentifiedImageError
 
-from waker.components.invisible_dialog import InvisibleDialog
 from waker.package import __app_name__, __version__, __repo_name__
 from waker.components.time_picker import TimePicker
 from core.model import Waker, WakerState, WakerObserver, CustomJSONEncoder
@@ -407,9 +405,6 @@ class App(WakerObserver):
 
     def no_new_version_fn(self):
         messagebox.showinfo(self.get_label("check_update"), self.get_label("no_new_version"))
-
-    def show_invisible_dialog(self):
-        InvisibleDialog(self.root)
 
     def show_about(self, icon=None, item=None):
         pady = self.layout_padding // 2
