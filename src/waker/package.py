@@ -1,4 +1,4 @@
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 __package_name__ = "rekaw"
 __app_name__ = "Rekaw"
 __description__ = 'A tool to optimize the workflow'
